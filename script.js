@@ -5,6 +5,7 @@
   const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
   const motionAllowed = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Mobile navigation
   const navToggle = $(".nav-toggle");
   const navMenu = $("#nav-menu");
 
@@ -27,14 +28,26 @@
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") closeMenu();
     });
+
+    document.addEventListener("click", (event) => {
+      if (!navMenu.classList.contains("is-open")) return;
+      if (navMenu.contains(event.target) || navToggle.contains(event.target)) return;
+      closeMenu();
+    });
   }
 
+  // Smooth anchor scrolling
   $$('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (event) => {
       const targetId = link.getAttribute("href");
       if (!targetId || targetId === "#") return;
 
-      const target = document.querySelector(targetId);
+      let target = null;
+      try {
+        target = document.querySelector(targetId);
+      } catch (error) {
+        return;
+      }
       if (!target) return;
 
       event.preventDefault();
@@ -44,13 +57,16 @@
     });
   });
 
+  // Active section in nav
   const navLinks = $$("[data-nav]");
   const sectionMap = navLinks
     .map((link) => {
       const href = link.getAttribute("href");
-      return href && href.startsWith("#") ? { link, section: document.querySelector(href) } : null;
+      if (!href || !href.startsWith("#")) return null;
+      const section = document.querySelector(href);
+      return section ? { link, section } : null;
     })
-    .filter((item) => item && item.section);
+    .filter(Boolean);
 
   if ("IntersectionObserver" in window && sectionMap.length) {
     const activeObserver = new IntersectionObserver(
@@ -66,12 +82,23 @@
           link.classList.toggle("is-active", link.getAttribute("href") === `#${activeId}`);
         });
       },
-      { rootMargin: "-24% 0px -66% 0px", threshold: 0 }
+      { rootMargin: "-22% 0px -66% 0px", threshold: 0 }
     );
 
     sectionMap.forEach(({ section }) => activeObserver.observe(section));
   }
 
+  // Header shadow on scroll
+  const header = $(".site-header");
+  if (header) {
+    const updateHeader = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 12);
+    };
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+  }
+
+  // Metric counters
   function animateMetric(element) {
     if (element.dataset.counted === "true") return;
     element.dataset.counted = "true";
@@ -107,7 +134,7 @@
 
   const metricTargets = $$(".metric-value");
 
-  if ("IntersectionObserver" in window) {
+  if ("IntersectionObserver" in window && metricTargets.length) {
     const metricObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
@@ -124,6 +151,7 @@
     metricTargets.forEach(animateMetric);
   }
 
+  // Reveal on scroll
   const revealTargets = $$(".reveal");
 
   if (!motionAllowed) {
@@ -137,7 +165,7 @@
           observer.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -90px 0px", threshold: 0.12 }
+      { rootMargin: "0px 0px -80px 0px", threshold: 0.12 }
     );
 
     revealTargets.forEach((element) => revealObserver.observe(element));
@@ -145,9 +173,11 @@
     revealTargets.forEach((element) => element.classList.add("is-visible"));
   }
 
+  // Tabs
   $$("[data-tabs]").forEach((tabGroup) => {
     const buttons = $$("[data-tab-target]", tabGroup);
     const panels = $$(".tab-panel", tabGroup);
+    if (!buttons.length || !panels.length) return;
 
     function activateTab(button) {
       const targetId = button.dataset.tabTarget;
@@ -162,7 +192,6 @@
       panels.forEach((panel) => {
         const isActive = panel.id === targetId;
         panel.classList.toggle("is-active", isActive);
-
         if (isActive) {
           panel.removeAttribute("hidden");
         } else {
@@ -181,9 +210,7 @@
           ArrowLeft: -1,
           ArrowUp: -1
         };
-
         if (!(event.key in keyMap)) return;
-
         event.preventDefault();
         const nextIndex = (index + keyMap[event.key] + buttons.length) % buttons.length;
         buttons[nextIndex].focus();
@@ -192,23 +219,30 @@
     });
   });
 
+  // Evidence filtering
   const filterButtons = $$("[data-filter]");
   const evidenceCards = $$(".evidence-card");
 
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const filter = button.dataset.filter || "all";
+  if (filterButtons.length && evidenceCards.length) {
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter || "all";
+        filterButtons.forEach((item) => {
+          const isActive = item === button;
+          item.classList.toggle("is-active", isActive);
+          item.setAttribute("aria-pressed", String(isActive));
+        });
 
-      filterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
-
-      evidenceCards.forEach((card) => {
-        const categories = (card.dataset.category || "").split(" ");
-        const shouldShow = filter === "all" || categories.includes(filter);
-        card.classList.toggle("is-hidden", !shouldShow);
+        evidenceCards.forEach((card) => {
+          const categories = (card.dataset.category || "").split(" ");
+          const shouldShow = filter === "all" || categories.includes(filter);
+          card.classList.toggle("is-hidden", !shouldShow);
+        });
       });
     });
-  });
+  }
 
+  // Clipboard
   async function writeToClipboard(text) {
     if (navigator.clipboard && window.isSecureContext) {
       await navigator.clipboard.writeText(text);
@@ -222,14 +256,16 @@
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
-    document.execCommand("copy");
-    textArea.remove();
+    try {
+      document.execCommand("copy");
+    } finally {
+      textArea.remove();
+    }
   }
 
   function markCopied(button, originalText) {
     button.classList.add("copied");
     button.textContent = "Copied";
-
     window.setTimeout(() => {
       button.classList.remove("copied");
       button.textContent = originalText;
@@ -238,10 +274,8 @@
 
   $$("[data-copy-text]").forEach((button) => {
     const originalText = button.textContent;
-
     button.addEventListener("click", async () => {
       const text = button.dataset.copyText || originalText;
-
       try {
         await writeToClipboard(text);
         markCopied(button, originalText);
@@ -253,11 +287,9 @@
 
   $$("[data-copy-target]").forEach((button) => {
     const originalText = button.textContent;
-
     button.addEventListener("click", async () => {
-      const target = document.querySelector(button.dataset.copyTarget);
+      const target = button.dataset.copyTarget ? document.querySelector(button.dataset.copyTarget) : null;
       if (!target) return;
-
       try {
         await writeToClipboard(target.textContent.trim());
         markCopied(button, originalText);
@@ -267,16 +299,14 @@
     });
   });
 
+  // Back to top
   const backToTop = $("[data-back-to-top]");
-
   if (backToTop) {
-    window.addEventListener(
-      "scroll",
-      () => {
-        backToTop.classList.toggle("is-visible", window.scrollY > 640);
-      },
-      { passive: true }
-    );
+    const updateBackToTop = () => {
+      backToTop.classList.toggle("is-visible", window.scrollY > 640);
+    };
+    updateBackToTop();
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
 
     backToTop.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: motionAllowed ? "smooth" : "auto" });
