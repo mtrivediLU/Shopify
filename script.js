@@ -1,37 +1,19 @@
-/* =========================================================
-   Mihir Trivedi · A note for Shopify · PS Engineering
-   ---------------------------------------------------------
-   Slim. Only what the page actually needs.
-   ========================================================= */
-
 (function () {
   "use strict";
 
   const $ = (selector, context = document) => context.querySelector(selector);
-  const $$ = (selector, context = document) =>
-    Array.from(context.querySelectorAll(selector));
-
-  const motionAllowed = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  /* ---------------- Letter date ---------------- */
-
-  const dateEl = $("#letter-date");
-  if (dateEl) {
-    const now = new Date();
-    dateEl.textContent = now.toLocaleDateString("en-CA", {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    });
-  }
-
-  /* ---------------- Mobile nav ---------------- */
+  const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
+  const reducedMotionQuery = typeof window.matchMedia === "function"
+    ? window.matchMedia("(prefers-reduced-motion: reduce)")
+    : { matches: false };
+  const motionAllowed = () => !reducedMotionQuery.matches;
 
   const navToggle = $(".nav-toggle");
   const navMenu = $("#nav-menu");
 
   function closeMenu() {
     if (!navToggle || !navMenu) return;
+
     navMenu.classList.remove("is-open");
     document.body.classList.remove("menu-open");
     navToggle.setAttribute("aria-expanded", "false");
@@ -41,58 +23,58 @@
   if (navToggle && navMenu) {
     navToggle.addEventListener("click", () => {
       const isOpen = navMenu.classList.toggle("is-open");
+
       document.body.classList.toggle("menu-open", isOpen);
       navToggle.setAttribute("aria-expanded", String(isOpen));
-      navToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
-      );
+      navToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
     });
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
     });
 
-    document.addEventListener("click", (e) => {
-      if (!navMenu.classList.contains("is-open")) return;
-      if (navMenu.contains(e.target) || navToggle.contains(e.target)) return;
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+
+      if (!(target instanceof Element)) return;
+      if (!document.body.classList.contains("menu-open")) return;
+      if (target.closest(".nav")) return;
+
       closeMenu();
     });
   }
 
-  /* ---------------- Smooth scroll for in-page links ---------------- */
-
   $$('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (e) => {
+    link.addEventListener("click", (event) => {
       const targetId = link.getAttribute("href");
+
       if (!targetId || targetId === "#") return;
 
-      let target = null;
-      try {
-        target = document.querySelector(targetId);
-      } catch (_) {
-        return;
-      }
+      const target = document.querySelector(targetId);
+
       if (!target) return;
 
-      e.preventDefault();
+      event.preventDefault();
       closeMenu();
+
       target.scrollIntoView({
-        behavior: motionAllowed ? "smooth" : "auto",
+        behavior: motionAllowed() ? "smooth" : "auto",
         block: "start"
       });
+
       history.pushState(null, "", targetId);
     });
   });
 
-  /* ---------------- Active section highlight ---------------- */
-
   const navLinks = $$("[data-nav]");
+
   const sectionMap = navLinks
     .map((link) => {
       const href = link.getAttribute("href");
-      if (!href || !href.startsWith("#")) return null;
-      const section = document.querySelector(href);
+      const section = href && href.startsWith("#") ? document.querySelector(href) : null;
+
       return section ? { link, section } : null;
     })
     .filter(Boolean);
@@ -100,114 +82,156 @@
   if ("IntersectionObserver" in window && sectionMap.length) {
     const activeObserver = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (!visible.length) return;
-        const activeId = visible[0].target.id;
+
+        if (!visibleEntries.length) return;
+
+        const activeId = visibleEntries[0].target.id;
+
         sectionMap.forEach(({ link }) => {
-          link.classList.toggle(
-            "is-active",
-            link.getAttribute("href") === `#${activeId}`
-          );
+          link.classList.toggle("is-active", link.getAttribute("href") === `#${activeId}`);
         });
       },
-      { rootMargin: "-25% 0px -65% 0px", threshold: 0 }
+      {
+        rootMargin: "-24% 0px -66% 0px",
+        threshold: 0
+      }
     );
+
     sectionMap.forEach(({ section }) => activeObserver.observe(section));
   }
 
-  /* ---------------- Header shadow on scroll ---------------- */
-
-  const header = $(".site-header");
-  if (header) {
-    const update = () => {
-      header.classList.toggle("is-scrolled", window.scrollY > 12);
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-  }
-
-  /* ---------------- Reveal on scroll ---------------- */
-
   const revealTargets = $$(".reveal");
 
-  if (!motionAllowed) {
-    revealTargets.forEach((el) => el.classList.add("is-visible"));
+  revealTargets.forEach((element, index) => {
+    element.style.setProperty("--reveal-delay", `${Math.min(index % 3, 2) * 45}ms`);
+  });
+
+  if (!motionAllowed()) {
+    revealTargets.forEach((element) => element.classList.add("is-visible"));
   } else if ("IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
+
           entry.target.classList.add("is-visible");
           observer.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -80px 0px", threshold: 0.12 }
+      {
+        rootMargin: "0px 0px -90px 0px",
+        threshold: 0.12
+      }
     );
-    revealTargets.forEach((el) => revealObserver.observe(el));
-  } else {
-    revealTargets.forEach((el) => el.classList.add("is-visible"));
-  }
 
-  /* ---------------- Code-block copy ---------------- */
+    revealTargets.forEach((element) => revealObserver.observe(element));
+  } else {
+    revealTargets.forEach((element) => element.classList.add("is-visible"));
+  }
 
   async function writeToClipboard(text) {
     if (navigator.clipboard && window.isSecureContext) {
       await navigator.clipboard.writeText(text);
       return;
     }
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.left = "-999px";
-    document.body.appendChild(ta);
-    ta.focus();
-    ta.select();
-    try {
-      document.execCommand("copy");
-    } finally {
-      ta.remove();
-    }
+
+    const textArea = document.createElement("textarea");
+
+    textArea.value = text;
+    textArea.setAttribute("readonly", "");
+    textArea.style.position = "fixed";
+    textArea.style.top = "0";
+    textArea.style.left = "-9999px";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    document.execCommand("copy");
+    textArea.remove();
   }
 
-  function markCopied(btn, original) {
-    btn.classList.add("copied");
-    btn.textContent = "Copied";
-    setTimeout(() => {
-      btn.classList.remove("copied");
-      btn.textContent = original;
+  function markCopied(button, originalText) {
+    button.classList.add("copied");
+    button.textContent = "Copied";
+
+    window.setTimeout(() => {
+      button.classList.remove("copied");
+      button.textContent = originalText;
     }, 1400);
   }
 
-  $$("[data-copy-target]").forEach((btn) => {
-    const original = btn.textContent;
-    btn.addEventListener("click", async () => {
-      const target = btn.dataset.copyTarget
-        ? document.querySelector(btn.dataset.copyTarget)
-        : null;
+  $$("[data-copy-target]").forEach((button) => {
+    const originalText = button.textContent.trim();
+
+    button.addEventListener("click", async () => {
+      const selector = button.getAttribute("data-copy-target");
+      const target = selector ? document.querySelector(selector) : null;
+
       if (!target) return;
+
       try {
         await writeToClipboard(target.textContent.trim());
-        markCopied(btn, original);
-      } catch (err) {
-        console.error("Copy failed", err);
+        markCopied(button, originalText);
+      } catch (error) {
+        console.error("Unable to copy text", error);
       }
     });
   });
 
-  /* ---------------- Back to top ---------------- */
+  $$("[data-copy-text]").forEach((button) => {
+    const originalText = button.textContent.trim();
+    const text = button.getAttribute("data-copy-text") || "";
+
+    button.addEventListener("click", async () => {
+      if (!text) return;
+
+      try {
+        await writeToClipboard(text);
+        markCopied(button, originalText);
+      } catch (error) {
+        console.error("Unable to copy text", error);
+      }
+    });
+  });
+
+  // const aiNodes = $$("[data-ai-node]");
+
+  // if (aiNodes.length && motionAllowed()) {
+  //   let activeIndex = 0;
+
+  //   function activateAiNode(index) {
+  //     aiNodes.forEach((node, nodeIndex) => {
+  //       node.classList.toggle("is-active", nodeIndex === index);
+  //     });
+  //   }
+
+  //   activateAiNode(activeIndex);
+
+  //   window.setInterval(() => {
+  //     activeIndex = (activeIndex + 1) % aiNodes.length;
+  //     activateAiNode(activeIndex);
+  //   }, 1800);
+  // }
 
   const backToTop = $("[data-back-to-top]");
+
   if (backToTop) {
-    const update = () => {
+    const updateBackToTop = () => {
       backToTop.classList.toggle("is-visible", window.scrollY > 640);
     };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
+
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
+    updateBackToTop();
 
     backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: motionAllowed ? "smooth" : "auto" });
+      window.scrollTo({
+        top: 0,
+        behavior: motionAllowed() ? "smooth" : "auto"
+      });
     });
   }
 })();

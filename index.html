@@ -3,479 +3,648 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mihir Trivedi · A note for Shopify Professional Services Engineering</title>
-  <meta name="description" content="A written follow-up from Mihir Trivedi to Marylou Cormier and the Professional Services Engineering team at Shopify." />
+
+  <title>Mihir Trivedi | Shopify Candidate Follow Up</title>
+  <meta name="description" content="A post interview technical fit summary for Shopify's Senior Software Engineer, Professional Services Engineering role." />
   <meta name="author" content="Mihir Trivedi" />
-  <meta name="robots" content="noindex, nofollow" />
-  <meta property="og:title" content="Mihir Trivedi · A note for Shopify PS Engineering" />
-  <meta property="og:description" content="A short written follow-up to an intro conversation with Shopify." />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Mihir Trivedi | Shopify Candidate Follow Up" />
+  <meta property="og:description" content="A thoughtful technical fit summary focused on merchant integrations, backend systems, AI assisted development, and production ownership." />
   <meta property="og:type" content="website" />
 
+  <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <a class="skip-link" href="#letter">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="top">
     <nav class="nav" aria-label="Primary navigation">
-      <a class="brand" href="#letter" aria-label="Top of page">
-        <span class="brand__rule" aria-hidden="true"></span>
-        <span class="brand__text">
-          <span class="brand__name">Mihir Trivedi</span>
-          <span class="brand__meta">A note for Shopify · PS Engineering</span>
+      <a class="brand" href="#memo" aria-label="Mihir Trivedi Shopify follow up home">
+        <span class="brand-mark" aria-hidden="true">MT</span>
+        <span>
+          <span class="brand-title">Mihir Trivedi</span>
+          <span class="brand-subtitle">Shopify Candidate Follow Up</span>
         </span>
       </a>
 
       <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
-      <div class="nav__links" id="nav-menu">
-        <a href="#thinking" data-nav>01 How I think</a>
-        <a href="#mapping" data-nav>02 Mapping</a>
-        <a href="#sketch" data-nav>03 A sketch</a>
-        <a href="#bruises" data-nav>04 Bruises</a>
-        <a href="#learning" data-nav>05 Learning</a>
-        <a href="#ramp" data-nav>06 Ramp</a>
-        <a href="#close" data-nav>07 Close</a>
+      <div class="nav-links" id="nav-menu">
+        <a href="#memo" data-nav>Memo</a>
+        <a href="#thinking" data-nav>Thinking</a>
+        <a href="#fit" data-nav>Fit</a>
+        <a href="#craft" data-nav>Craft Demo</a>
+        <a href="#ai-workflow" data-nav>AI Workflow</a>
+        <a href="#trophies" data-nav>Life Story</a>
+        <a href="#learning" data-nav>Learning</a>
+        <a href="#contact" data-nav>Contact</a>
       </div>
     </nav>
   </header>
 
-  <main>
-
-    <!-- ============== LETTER OPENING ============== -->
-    <section class="letter" id="letter" aria-labelledby="letter-title">
+  <main id="main">
+    <section class="memo-hero section" id="memo" aria-labelledby="memo-title">
       <div class="container">
-        <dl class="memo" aria-label="Memo header">
-          <div><dt>From</dt><dd>Mihir Trivedi</dd></div>
-          <div><dt>To</dt><dd>Marylou Cormier · Senior Technical Recruiter, Shopify</dd></div>
-          <div><dt>Re</dt><dd>Senior Software Engineer, Professional Services Engineering</dd></div>
-          <div><dt>Date</dt><dd id="letter-date">—</dd></div>
-        </dl>
+        <div class="memo-shell reveal">
+          <div class="memo-meta" aria-label="Post interview memo details">
+            <div>
+              <span>From</span>
+              <strong>Mihir Trivedi</strong>
+            </div>
+            <div>
+              <span>To</span>
+              <strong>Marylou Cormier and Shopify hiring team</strong>
+            </div>
+            <div>
+              <span>Re</span>
+              <strong>Senior Software Engineer, Professional Services Engineering</strong>
+            </div>
+            <div>
+              <span>Date</span>
+              <strong>May 13, 2026</strong>
+            </div>
+          </div>
 
-        <h1 class="letter__title" id="letter-title">
-          A short written follow&#8209;up to our conversation.
-        </h1>
+          <div class="memo-body">
+            <p class="eyebrow">Post interview technical fit summary</p>
+            <h1 id="memo-title">A practical builder for merchant integrations, backend systems, and AI assisted delivery.</h1>
 
-        <div class="letter__body">
-          <p>
-            Marylou — thank you for the time on the intro call. I wanted to put something in writing you could forward to the technical team without it being another resume.
-          </p>
-          <p>
-            This page isn't a pitch. It's a place to show, in my own words, how I think about backend integration work, the parts of my background that map cleanly onto Professional Services Engineering, the parts that don't yet, a small piece of code I'd be comfortable being graded on, and the honest plan for the first ninety days.
-          </p>
-          <p>
-            If anything here raises a useful question, that's the point. I'd rather walk into the next round with the easy stuff already on paper.
-          </p>
-          <p class="letter__signoff">— Mihir, writing from Sudbury, Ontario</p>
-        </div>
+            <div class="letter-note">
+              <p>Hi Marylou,</p>
+              <p>
+                Thank you again for the conversation on May 13. I created this short follow up as a more useful signal than a generic thank you note. It summarizes how I think, where my experience maps to the Professional Services Engineering role, and how I am preparing for the technical depth of the next round.
+              </p>
+              <p>
+                The role stood out to me because it sits at the intersection of backend engineering, merchant outcomes, custom integrations, technical ambiguity, and applied AI. That is the shape of work I have enjoyed most across enterprise commerce, data systems, client delivery, and production support.
+              </p>
+            </div>
 
-        <div class="letter__lower">
-          <a class="link link--primary" href="#thinking">Read the note</a>
-          <a class="link" href="https://www.mihirtrivedi.tech" target="_blank" rel="noopener">Personal site ↗</a>
-          <a class="link" href="https://linkedin.com/in/mihirtrivedigm" target="_blank" rel="noopener">LinkedIn ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============== 01 HOW I THINK ============== -->
-    <section class="section" id="thinking" aria-labelledby="thinking-title">
-      <div class="container">
-        <header class="section-head reveal">
-          <span class="sec-num">§ 01</span>
-          <h2 id="thinking-title">How I think about this work.</h2>
-        </header>
-
-        <div class="prose reveal">
-          <p>
-            <em>Integration is mostly about boundaries.</em> Most of the backend work I've shipped has lived in the seam between a merchant's source-of-truth — an ERP, a fulfillment system, a Salesforce org, a commerce platform — and whatever the user-facing system is. The enjoyable part is the architecture. The hard part is what happens after launch: retries, partial failures, the question from a delivery manager who can't see why an order didn't sync. I try to think about that side of the work first, not last.
-          </p>
-          <p>
-            <em>Production is where the craft shows.</em> Anyone can ship something on a green field. The signal I've trained myself to look for is what the same system looks like six months in, when the original author has moved on and something fails at four in the morning. I aim for the second kind of system — boring, observable, recoverable — even when nobody is asking for it yet.
-          </p>
-          <p>
-            <em>AI is leverage, not autopilot.</em> I use Cursor, Claude, and the OpenAI and Gemini APIs daily — for ramping up on unfamiliar codebases, for first drafts, for exploring designs I wouldn't have reached on my own. The accountability stays with me. If a line of code lands in production under my name, I've read it, tested it, and I can explain why it's there.
-          </p>
+            <div class="hero-actions" aria-label="Primary page actions">
+              <a class="button button-primary" href="#craft">Review craft demo</a>
+              <a class="button button-secondary" href="#fit">Review role fit</a>
+              <a class="button button-quiet" href="#ai-workflow">AI workflow approach</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============== 02 MAPPING ============== -->
-    <section class="section section--soft" id="mapping" aria-labelledby="mapping-title">
-      <div class="container">
-        <header class="section-head reveal">
-          <span class="sec-num">§ 02</span>
-          <h2 id="mapping-title">Where my background maps onto the role.</h2>
-          <p class="section-sub">
-            Four honest mappings, not seven. Where it's a clean fit, I say so. Where it isn't yet, I name it in section 06.
-          </p>
-        </header>
+    <section class="section section-paper" id="thinking" aria-labelledby="thinking-title">
+      <div class="container narrow">
+        <p class="eyebrow reveal">How I think</p>
+        <h2 class="section-title reveal" id="thinking-title">Before code, I try to understand the merchant outcome.</h2>
 
-        <ol class="mapping-list" aria-label="Role-to-experience mapping">
-          <li class="mapping reveal">
-            <div class="mapping__need">
-              <span class="tag">The role asks for</span>
-              <h3>Custom integrations between commerce and merchant systems.</h3>
-            </div>
-            <div class="mapping__me">
-              <p>
-                Seven years of this in shape, if not in stack. At TCS, I led backend implementation on thirteen B2B platforms on SAP Commerce Cloud, all of them with ERP, fulfillment, and payment-adjacent connections. At Flosonics I built dbt-managed PostgreSQL services pulling from Salesforce and product systems. The technology was different. The work — clean contracts, predictable failure modes, replayable pipelines — is the same.
-              </p>
-            </div>
-          </li>
+        <div class="prose-stack">
+          <article class="prose-card reveal">
+            <h3>Start with the operating problem</h3>
+            <p>
+              In integration work, the difficult part is often not the endpoint itself. It is the unclear business rule, the external system that behaves slightly differently than expected, the missing edge case, and the launch timeline that still matters to the merchant. My first step is to clarify the actual outcome, not simply the requested implementation.
+            </p>
+          </article>
 
-          <li class="mapping reveal">
-            <div class="mapping__need">
-              <span class="tag">The role asks for</span>
-              <h3>Primary technical contact on paid engagements.</h3>
-            </div>
-            <div class="mapping__me">
-              <p>
-                This has been most of my last seven years. At TCS the engagements were larger and longer; at LoopX and Minax they were shorter and rougher around the edges. In all of them I owned the technical thread end-to-end — discovery, design, code, validation, handover — including the conversations where I had to surface a risk early to a stakeholder who didn't want to hear it.
-              </p>
-            </div>
-          </li>
+          <article class="prose-card reveal">
+            <h3>Design for failure from the beginning</h3>
+            <p>
+              Webhooks can be duplicated. APIs can rate limit. Jobs can fail halfway. Data can arrive late. A production integration should expect those realities. I think about idempotency, validation, retries, audit trails, observability, and rollback before I think about making the happy path look elegant.
+            </p>
+          </article>
 
-          <li class="mapping reveal">
-            <div class="mapping__need">
-              <span class="tag">The role asks for</span>
-              <h3>Backend, APIs, webhooks, reliable data flow.</h3>
-            </div>
-            <div class="mapping__me">
-              <p>
-                Java with Spring MVC and Hibernate is where I've spent the most production hours. Node.js and Python are where most of my recent work lives. The principles I lean on — idempotency keys, signed webhooks, bounded retries, dead-letter handling, rate-limit awareness — port directly to Rails and Sidekiq, even though those tools are newer to me. See section 03 for what that looks like in code.
-              </p>
-            </div>
-          </li>
-
-          <li class="mapping reveal">
-            <div class="mapping__need">
-              <span class="tag">The role asks for</span>
-              <h3>AI tools as an accelerator, not a crutch.</h3>
-            </div>
-            <div class="mapping__me">
-              <p>
-                I work in Cursor on most days. I keep Claude open as a second pair of eyes. At Flosonics I shipped internal AI assistants in Python that reduced recurring reporting effort roughly forty percent — which mattered less than the discipline that came with it: writing prompts as if they were specs, treating model output as a draft, never as a deliverable. I expect to use these tools the same way at Shopify.
-              </p>
-            </div>
-          </li>
-        </ol>
+          <article class="prose-card reveal">
+            <h3>Build trust quickly, then compound it</h3>
+            <p>
+              In client facing engineering, the trust battery starts from zero. I try to build it with clear communication, small working increments, early risk surfacing, readable code, and documentation that helps the next person maintain the system. That is how I would approach merchant facing work at Shopify.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- ============== 03 A SKETCH ============== -->
-    <section class="section" id="sketch" aria-labelledby="sketch-title">
+    <section class="section" id="fit" aria-labelledby="fit-title">
       <div class="container">
-        <header class="section-head reveal">
-          <span class="sec-num">§ 03</span>
-          <h2 id="sketch-title">A working sketch.</h2>
-          <p class="section-sub">
-            To keep this from being claims-without-code: a small Rails-style sketch of how I'd handle the first inch of a Shopify webhook integration. Not a real codebase — just enough to show the thinking that I'd want a senior reviewer to grade. I've been working through Rails 7 in preparation for the pair-programming round; this is the kind of thing I'd reach for first.
+        <div class="section-heading reveal">
+          <p class="eyebrow">Role fit</p>
+          <h2 class="section-title" id="fit-title">Where the fit is practical.</h2>
+          <p>
+            I am not presenting this as direct Shopify experience. I am presenting it as transferable experience that maps closely to the work described in the Professional Services Engineering role.
           </p>
-        </header>
+        </div>
 
-        <div class="code-shell reveal">
-          <header class="code-shell__bar">
-            <span class="code-shell__dot"></span>
-            <span class="code-shell__dot"></span>
-            <span class="code-shell__dot"></span>
-            <span class="code-shell__path">app/controllers/shopify_webhooks_controller.rb</span>
-            <button class="code-copy" type="button" data-copy-target="#sketch-code">Copy</button>
-          </header>
-<pre class="code-block"><code id="sketch-code"><span class="cm"># Receives Shopify webhooks. The only goals here are:</span>
-<span class="cm"># 1) verify the request is actually from Shopify,</span>
-<span class="cm"># 2) acknowledge it fast,</span>
-<span class="cm"># 3) make sure we never process the same event twice.</span>
-<span class="cm"># Real work happens later, in a background job.</span>
+        <div class="fit-table reveal" role="table" aria-label="Shopify role fit mapping">
+          <div class="fit-row fit-head" role="row">
+            <div role="columnheader">Shopify needs</div>
+            <div role="columnheader">Relevant evidence</div>
+            <div role="columnheader">Why it matters</div>
+          </div>
 
-<span class="kw">class</span> <span class="cls">ShopifyWebhooksController</span> &lt; <span class="cls">ApplicationController</span>
-  <span class="kw">skip_before_action</span> <span class="sym">:verify_authenticity_token</span>
+          <div class="fit-row" role="row">
+            <div role="cell">
+              <strong>Custom integrations and merchant systems</strong>
+              <span>ERP, fulfillment, payment adjacent workflows, and commerce platform connections.</span>
+            </div>
+            <div role="cell">
+              Led backend implementation for enterprise B2B commerce platforms at TCS using SAP Commerce Cloud, Java Spring MVC, Hibernate, and REST APIs.
+            </div>
+            <div role="cell">
+              Professional Services Engineering needs engineers who can bridge business requirements and reliable integration delivery.
+            </div>
+          </div>
 
-  <span class="kw">def</span> <span class="fn">receive</span>
-    raw_body = request.body.read
+          <div class="fit-row" role="row">
+            <div role="cell">
+              <strong>Backend services, APIs, and data flow reliability</strong>
+              <span>Service boundaries, transformations, validation, persistence, and operational debugging.</span>
+            </div>
+            <div role="cell">
+              Built backend data services and repeatable PostgreSQL pipelines at Flosonics, integrating Salesforce connected data and external sources.
+            </div>
+            <div role="cell">
+              The same discipline applies when moving data between merchant systems, Shopify APIs, queues, jobs, and reporting layers.
+            </div>
+          </div>
 
-    <span class="cm"># Reject anything we can't authenticate. Constant-time compare.</span>
-    <span class="kw">unless</span> valid_hmac?(raw_body, request.headers[<span class="str">"X-Shopify-Hmac-Sha256"</span>])
-      <span class="kw">return</span> head(<span class="sym">:unauthorized</span>)
-    <span class="kw">end</span>
+          <div class="fit-row" role="row">
+            <div role="cell">
+              <strong>Client facing technical ownership</strong>
+              <span>Ambiguous requests, stakeholder translation, risk communication, and delivery ownership.</span>
+            </div>
+            <div role="cell">
+              Worked directly with enterprise stakeholders, field operators, and internal business teams across TCS, LoopX, Minax, and City projects.
+            </div>
+            <div role="cell">
+              This role requires more than coding. It requires translating unclear needs into clear technical steps while keeping people aligned.
+            </div>
+          </div>
 
-    event_id = request.headers[<span class="str">"X-Shopify-Webhook-Id"</span>]
+          <div class="fit-row" role="row">
+            <div role="cell">
+              <strong>AI accelerated development</strong>
+              <span>Using AI as a disciplined engineering accelerator, not as a shortcut.</span>
+            </div>
+            <div role="cell">
+              Built internal AI assistants with OpenAI and Gemini APIs and use Cursor, Claude, and structured prompts to accelerate development and analysis.
+            </div>
+            <div role="cell">
+              Shopify expects engineers to use AI tools to ramp up, move faster, and still own engineering quality.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <span class="cm"># Idempotency: same delivery, same outcome. Shopify retries; we shrug.</span>
-    <span class="kw">if</span> <span class="cls">WebhookEvent</span>.exists?(shopify_event_id: event_id)
-      <span class="kw">return</span> head(<span class="sym">:ok</span>)
-    <span class="kw">end</span>
+    <section class="section section-code" id="craft" aria-labelledby="craft-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Craft demo</p>
+          <h2 class="section-title" id="craft-title">A small Rails example showing how I think about webhooks.</h2>
+          <p>
+            I am preparing for the pair programming round by practicing Ruby on Rails patterns, especially the parts that matter in integrations: verification, idempotency, background job offload, clear responses, and production friendly failure handling.
+          </p>
+        </div>
 
-    <span class="cls">WebhookEvent</span>.create!(
-      shopify_event_id: event_id,
-      topic:            request.headers[<span class="str">"X-Shopify-Topic"</span>],
-      shop_domain:      request.headers[<span class="str">"X-Shopify-Shop-Domain"</span>],
-      payload:          raw_body
+        <div class="craft-layout">
+          <div class="code-panel reveal">
+            <div class="code-panel-header">
+              <div>
+                <span>Ruby on Rails</span>
+                <strong>Webhook controller sketch</strong>
+              </div>
+              <button class="copy-button" type="button" data-copy-target="#rails-webhook-code">Copy code</button>
+            </div>
+
+            <pre><code id="rails-webhook-code">class Webhooks::OrdersController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
+  def create
+    payload = request.raw_post
+    signature = request.headers["X-Shopify-Hmac-Sha256"]
+
+    unless valid_hmac?(payload, signature)
+      Rails.logger.warn("Rejected webhook with invalid signature")
+      return head :unauthorized
+    end
+
+    event_id = request.headers["X-Shopify-Event-Id"]
+    topic = request.headers["X-Shopify-Topic"]
+
+    webhook_event = WebhookEvent.find_or_initialize_by(
+      external_event_id: event_id
     )
 
-    <span class="cm"># Hand off and acknowledge fast — keep this controller boring.</span>
-    <span class="cls">ProcessWebhookJob</span>.perform_later(event_id)
-    head <span class="sym">:ok</span>
-  <span class="kw">end</span>
+    if webhook_event.persisted?
+      Rails.logger.info("Duplicate webhook ignored: #{event_id}")
+      return head :ok
+    end
 
-  <span class="kw">private</span>
+    webhook_event.assign_attributes(
+      topic: topic,
+      payload: JSON.parse(payload),
+      status: "queued"
+    )
 
-  <span class="kw">def</span> <span class="fn">valid_hmac?</span>(body, header)
-    <span class="kw">return</span> <span class="kw">false</span> <span class="kw">if</span> header.blank?
+    webhook_event.save!
+    ProcessOrderWebhookJob.perform_later(webhook_event.id)
 
-    digest = <span class="cls">OpenSSL::HMAC</span>.digest(<span class="str">"sha256"</span>, <span class="cls">ENV</span>.fetch(<span class="str">"SHOPIFY_API_SECRET"</span>), body)
-    expected = <span class="cls">Base64</span>.strict_encode64(digest)
+    head :accepted
+  rescue JSON::ParserError
+    Rails.logger.warn("Webhook rejected because payload was invalid JSON")
+    head :bad_request
+  rescue ActiveRecord::RecordInvalid => error
+    Rails.logger.error("Webhook persistence failed: #{error.message}")
+    head :unprocessable_entity
+  end
 
-    <span class="cls">ActiveSupport::SecurityUtils</span>.secure_compare(expected, header)
-  <span class="kw">end</span>
-<span class="kw">end</span></code></pre>
-        </div>
+  private
 
-        <div class="prose reveal">
-          <p>
-            <em>What I'd add next, in order.</em> A <code>ProcessWebhookJob</code> as a Sidekiq worker that does the real work with exponential backoff and a poison-message limit. A <code>dead_letter_events</code> table for anything past that limit, with a small admin view so a delivery manager can replay manually instead of pinging engineering. Structured logs keyed on <code>shop_domain</code> and <code>shopify_event_id</code> so a support question takes thirty seconds, not thirty minutes. Tests on the controller for the unauthorized, duplicate, and happy paths — they're cheap and they catch the things that actually break in production.
-          </p>
-          <p>
-            The pattern isn't novel. The discipline of treating the webhook controller as a thin authenticated front door, and pushing everything that can fail into a place where failure is recoverable, is what I want to bring on day one.
-          </p>
+  def valid_hmac?(payload, signature)
+    digest = OpenSSL::HMAC.digest(
+      "sha256",
+      Rails.application.credentials.shopify_webhook_secret,
+      payload
+    )
+
+    expected = Base64.strict_encode64(digest)
+
+    ActiveSupport::SecurityUtils.secure_compare(
+      expected,
+      signature.to_s
+    )
+  end
+end</code></pre>
+          </div>
+
+          <aside class="annotation-panel reveal" aria-label="Webhook engineering annotations">
+            <article>
+              <span>01</span>
+              <div>
+                <h3>Verify before trusting</h3>
+                <p>HMAC verification happens before parsing or persistence, so untrusted payloads are rejected early.</p>
+              </div>
+            </article>
+
+            <article>
+              <span>02</span>
+              <div>
+                <h3>Make duplicate delivery safe</h3>
+                <p>The external event id becomes the idempotency boundary. Duplicate webhook deliveries return safely.</p>
+              </div>
+            </article>
+
+            <article>
+              <span>03</span>
+              <div>
+                <h3>Offload work to a job</h3>
+                <p>The request path stores the event and returns quickly. Heavy processing runs asynchronously.</p>
+              </div>
+            </article>
+
+            <article>
+              <span>04</span>
+              <div>
+                <h3>Log what helps production</h3>
+                <p>The code records enough signal for debugging without exposing sensitive payload details in logs.</p>
+              </div>
+            </article>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- ============== 04 TROPHIES AND BRUISES ============== -->
-    <section class="section section--dark" id="bruises" aria-labelledby="bruises-title">
+    <section class="section" id="integration" aria-labelledby="integration-title">
       <div class="container">
-        <header class="section-head section-head--inverse reveal">
-          <span class="sec-num">§ 04</span>
-          <h2 id="bruises-title">Trophies and bruises.</h2>
-          <p class="section-sub">
-            Shopify's candidate guide says the Life Story conversation is interested in <em>the trophies and the bruises</em>. That framing has stuck with me, so I'll start there.
+        <div class="section-heading reveal">
+          <p class="eyebrow">Integration architecture</p>
+          <h2 class="section-title" id="integration-title">How I would approach a merchant integration.</h2>
+          <p>
+            This is a simplified architecture view, not a claim about Shopify internal systems. It shows the questions I would ask and the reliability patterns I would consider.
           </p>
-        </header>
+        </div>
 
-        <div class="two-col">
-          <article class="column reveal">
-            <h3 class="column__title">Trophies.</h3>
+        <div class="integration-flow reveal" aria-label="Merchant integration flow">
+          <div>Merchant system or ERP</div>
+          <div>API boundary and auth</div>
+          <div>Webhook ingestion</div>
+          <div>Validation and transformation</div>
+          <div>Database persistence</div>
+          <div>Background jobs</div>
+          <div>Commerce API layer</div>
+          <div>Observability and alerts</div>
+          <div>Merchant status view</div>
+        </div>
 
-            <div class="entry">
-              <h4>Thirteen B2B platforms, one playbook.</h4>
-              <p>
-                The TCS years were a slow accumulation of pattern-recognition. By the time I was leading a team of four, I could look at a new enterprise commerce engagement and know within a week what was going to bite us six months later. That sense — "this contract is too loose, that handoff is going to fail under load" — is the part I'd most like to bring forward.
-              </p>
-            </div>
-
-            <div class="entry">
-              <h4>Internal AI assistants that people actually used.</h4>
-              <p>
-                The win at Flosonics wasn't the percentage of effort saved. It was that the operations team started writing their own prompts and asking better questions of their own data. The tool faded into the background and the workflow changed. That's the version of "AI as leverage" I want to keep building.
-              </p>
-            </div>
-
-            <div class="entry">
-              <h4>The mining-field deployment that survived.</h4>
-              <p>
-                LoopX was unglamorous and useful. Offline-capable workflows for people who don't think of themselves as software users, signed off in UAT by operators on a noisy floor, with a handover document that the customer team still owns. Most of the credit goes to taking the requirements meeting seriously.
-              </p>
-            </div>
+        <div class="principle-grid">
+          <article class="principle-card reveal">
+            <h3>Idempotency</h3>
+            <p>Every external event should have a safe replay story so duplicate delivery does not create duplicate business impact.</p>
           </article>
 
-          <article class="column reveal">
-            <h3 class="column__title">Bruises.</h3>
+          <article class="principle-card reveal">
+            <h3>Rate limit awareness</h3>
+            <p>API clients should use backoff, batching where appropriate, and clear retry rules instead of forcing fragile traffic patterns.</p>
+          </article>
 
-            <div class="entry">
-              <h4>Observability is not a phase-two concern.</h4>
-              <p>
-                Earlier in my career I shipped an integration that worked beautifully in development and was effectively a black box once it hit production. The first incident took two days to diagnose. Now I scaffold structured logging, basic metrics, and an honest README in the first commit, not the last. It's slower up front and a lot faster every other week after that.
-              </p>
-            </div>
+          <article class="principle-card reveal">
+            <h3>Error recovery</h3>
+            <p>Failures should be visible, classified, and recoverable through retries, dead letter handling, or a manual support path.</p>
+          </article>
 
-            <div class="entry">
-              <h4>Verbal contracts age badly.</h4>
-              <p>
-                I have shipped at least one integration where the upstream field shape was agreed in a meeting and never written down. The upstream team renamed the field. Three downstream consumers found out simultaneously. Now there is always a written contract, a version number, and a deprecation note before anything ships — even when it feels like ceremony.
-              </p>
-            </div>
+          <article class="principle-card reveal">
+            <h3>Audit logging</h3>
+            <p>Integration events should leave enough history to explain what happened, when it happened, and what changed.</p>
+          </article>
 
-            <div class="entry">
-              <h4>Incidents are feedback, not exceptions.</h4>
-              <p>
-                I used to treat production incidents as one-offs to be fixed and forgotten. The same class of bug usually surfaces three times before someone fixes the underlying habit. I now write a one-page note after anything that woke me up — what failed, what I did, what I'd change in the design — and circulate it before the memory fades.
-              </p>
-            </div>
+          <article class="principle-card reveal">
+            <h3>Test coverage</h3>
+            <p>Tests should cover signature verification, duplicate delivery, invalid payloads, retry behavior, and happy path processing.</p>
+          </article>
+
+          <article class="principle-card reveal">
+            <h3>Production monitoring</h3>
+            <p>Operational dashboards should surface queue depth, job failure rate, webhook volume, API errors, and merchant impact.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============== 05 HOW I KEEP LEARNING ============== -->
+    <section class="section section-ai" id="ai-workflow" aria-labelledby="ai-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">AI assisted engineering</p>
+          <h2 class="section-title" id="ai-title">How I would use Cursor and Claude Code intelligently in a Shopify engineering environment.</h2>
+          <p>
+            I would use AI as an engineering multiplier, not as a replacement for ownership. The value is faster context gathering, better tests, cleaner pull requests, and stronger production review.
+          </p>
+        </div>
+
+        <div class="ai-workflow-board reveal" aria-label="AI assisted engineering workflow">
+          <div class="ai-workflow-main">
+            <span>Operating principle</span>
+            <h3>AI accelerates the loop. I still own the judgment.</h3>
+            <p>
+              Scope the problem, load only useful context, ask for a plan, implement in small changes, verify with tests, and review production risk before shipping.
+            </p>
+          </div>
+
+          <div class="ai-workflow-steps" aria-label="AI workflow steps">
+            <article class="ai-step-card">
+              <span>01</span>
+              <strong>Merchant problem</strong>
+              <p>Clarify outcome, constraints, launch risk, and success criteria.</p>
+            </article>
+
+            <article class="ai-step-card">
+              <span>02</span>
+              <strong>Cursor</strong>
+              <p>Use for codebase reading, targeted edits, refactors, and local test generation.</p>
+            </article>
+
+            <article class="ai-step-card">
+              <span>03</span>
+              <strong>Claude Code</strong>
+              <p>Use for plan, execute, test, debug, summarize, and prepare PR notes.</p>
+            </article>
+
+            <article class="ai-step-card">
+              <span>04</span>
+              <strong>MCP and skills</strong>
+              <p>Connect only useful context: docs, issues, logs, PRs, and repeatable workflows.</p>
+            </article>
+
+            <article class="ai-step-card">
+              <span>05</span>
+              <strong>Verification gate</strong>
+              <p>Run tests, review diffs, check security, inspect logs, and validate edge cases.</p>
+            </article>
+
+            <article class="ai-step-card">
+              <span>06</span>
+              <strong>Production ready PR</strong>
+              <p>Ship small, explain tradeoffs, document rollback, and share learning.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="ai-rules-grid">
+          <article class="ai-rule-card reveal">
+            <span>Context discipline</span>
+            <h3>Do not feed the whole repo.</h3>
+            <p>Point AI to the exact files, errors, acceptance criteria, and constraints needed for the task.</p>
+          </article>
+
+          <article class="ai-rule-card reveal">
+            <span>Token control</span>
+            <h3>Use less context, better.</h3>
+            <p>Keep rules short, avoid generated files, disable unused tools, and start fresh when the task changes.</p>
+          </article>
+
+          <article class="ai-rule-card reveal">
+            <span>Human review</span>
+            <h3>Trust, but verify.</h3>
+            <p>AI can propose. I still own architecture, security, merchant impact, test evidence, and final judgment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-paper" id="trophies" aria-labelledby="trophies-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Life Story preparation</p>
+          <h2 class="section-title" id="trophies-title">Trophies and bruises.</h2>
+          <p>
+            Shopify’s Life Story interview language resonated with me because it asks for both outcomes and lessons. These are the examples I would want to discuss honestly.
+          </p>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-card reveal">
+            <span>Trophy</span>
+            <h3>Enterprise commerce delivery</h3>
+            <p>
+              At TCS, I led and contributed to enterprise B2B commerce work where backend implementation, stakeholder communication, code reviews, and production support all mattered together.
+            </p>
+          </article>
+
+          <article class="story-card reveal">
+            <span>Trophy</span>
+            <h3>AI and data systems in production context</h3>
+            <p>
+              At Flosonics, I built backend data services, AI assisted internal tools, and repeatable pipelines that reduced manual reporting effort and supported operational decisions.
+            </p>
+          </article>
+
+          <article class="story-card reveal">
+            <span>Trophy</span>
+            <h3>Ambiguous field requirements</h3>
+            <p>
+              At LoopX and Minax, I worked with field stakeholders where the first version of the requirement was rarely perfect. The work required discovery, UAT, documentation, and practical delivery.
+            </p>
+          </article>
+
+          <article class="story-card story-card-soft reveal">
+            <span>Bruise</span>
+            <h3>I learned not to overbuild early</h3>
+            <p>
+              Earlier in my career, I sometimes tried to make the architecture too complete before the user workflow was fully clear. I now prefer smaller working increments, faster validation, and cleaner iteration.
+            </p>
+          </article>
+
+          <article class="story-card story-card-soft reveal">
+            <span>Bruise</span>
+            <h3>I learned to surface risk sooner</h3>
+            <p>
+              When requirements are changing, silence can look like confidence but create surprise later. I have learned to communicate uncertainty early and turn it into options, tradeoffs, and next steps.
+            </p>
+          </article>
+
+          <article class="story-card story-card-soft reveal">
+            <span>Bruise</span>
+            <h3>I learned that handoff is part of craft</h3>
+            <p>
+              A solution is not finished when it works only for the original developer. I now treat documentation, operational notes, and maintainability as part of the delivery, not an afterthought.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="learning" aria-labelledby="learning-title">
-      <div class="container">
-        <header class="section-head reveal">
-          <span class="sec-num">§ 05</span>
-          <h2 id="learning-title">How I keep learning.</h2>
-          <p class="section-sub">
-            None of the certifications below were employer-mandated. I sat for them on my own time, mostly to force myself to go deeper on a stack faster than a normal project would have demanded. They're listed here because the habit matters more than the line items.
+      <div class="container learning-layout">
+        <div class="section-heading reveal">
+          <p class="eyebrow">How I keep learning</p>
+          <h2 class="section-title" id="learning-title">Self directed growth has been my normal way of working.</h2>
+          <p>
+            I completed Microsoft certifications on my own time, learned new tools when projects required them, and used AI tools to accelerate learning without skipping fundamentals.
           </p>
-        </header>
+        </div>
 
-        <ul class="cert-list reveal" aria-label="Certifications">
-          <li class="cert">
-            <span class="cert__year">2025</span>
-            <div>
-              <h3>Salesforce Certified Agentforce Specialist</h3>
-              <p>Studied through the Agentforce launch window so I'd have a working model for agent design rather than reading about it after the fact.</p>
-            </div>
-          </li>
-          <li class="cert">
-            <span class="cert__year">2024</span>
-            <div>
-              <h3>Microsoft Power Platform Developer Associate (PL&#8209;400)</h3>
-              <p>Sat for this after the first few LoopX engagements to validate that what I'd taught myself on the job was actually the recommended pattern.</p>
-            </div>
-          </li>
-          <li class="cert">
-            <span class="cert__year">2024</span>
-            <div>
-              <h3>Microsoft Power BI Data Analyst (PL&#8209;300)</h3>
-              <p>Paired naturally with the BI work at Flosonics. Mostly useful for the modeling discipline; the report-building was already familiar.</p>
-            </div>
-          </li>
-          <li class="cert">
-            <span class="cert__year">2024</span>
-            <div>
-              <h3>Microsoft Azure Fundamentals (AZ&#8209;900)</h3>
-              <p>The smallest of the four. A starting point for cloud literacy I hadn't formalized yet.</p>
-            </div>
-          </li>
-        </ul>
-
-        <div class="learning-now reveal">
-          <h3>What I'm reading <em>right now</em>, for this role specifically.</h3>
-          <ul>
-            <li><strong>Rails 7</strong> — working through the Hartl tutorial in the evenings, plus rebuilding one of my Node utilities as a Rails app for muscle memory rather than reading comprehension.</li>
-            <li><strong>Shopify's developer docs</strong> — Admin and Storefront APIs, app extensions, rate-limit behavior, the GraphQL Admin API specifically.</li>
-            <li><strong>The candidate guide and the ~Mastery framing</strong> — including the hiring video, twice. The "infinite game" piece is what made me apply rather than just save the posting.</li>
+        <div class="learning-panel reveal">
+          <h3>What I am studying specifically for this role</h3>
+          <ul class="check-list">
+            <li>Ruby and Rails 7 patterns for controllers, jobs, services, tests, and application structure.</li>
+            <li>Shopify app concepts, webhooks, Admin API patterns, merchant workflows, and integration boundaries.</li>
+            <li>GraphQL fundamentals, REST tradeoffs, pagination, rate limits, and API client design.</li>
+            <li>Pair programming habits: thinking out loud, clarifying assumptions, testing edge cases, and explaining tradeoffs.</li>
+            <li>AI assisted development workflows using Cursor, Claude Code, rules, MCP, skills, and token efficient context management.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ============== 06 GAPS AND RAMP ============== -->
-    <section class="section section--soft" id="ramp" aria-labelledby="ramp-title">
+    <section class="section section-paper" id="evidence" aria-labelledby="evidence-title">
       <div class="container">
-        <header class="section-head reveal">
-          <span class="sec-num">§ 06</span>
-          <h2 id="ramp-title">Honest gaps, and the first ninety days.</h2>
-          <p class="section-sub">
-            If I'm being graded on "fit, right now," there are three places I'd flag before someone else does.
-          </p>
-        </header>
-
-        <div class="gaps reveal">
-          <article class="gap">
-            <h3>Ruby on Rails in production.</h3>
-            <p>
-              I have shipped Java Spring backends for years. The mental model — request lifecycle, ORM patterns, background jobs, middleware — ports directly. The Rails syntax and conventions are not yet muscle memory. I'd expect the first thirty days to be a real ramp, not a cosmetic one.
-            </p>
-          </article>
-          <article class="gap">
-            <h3>Production Shopify app development.</h3>
-            <p>
-              I haven't shipped a Shopify app yet. I've worked with Salesforce, SAP Commerce, and Microsoft APIs at length, so the shape — auth, webhooks, rate limits, GraphQL — is familiar. The Shopify-specific patterns (Polaris, app extensions, App Bridge, Functions) are net-new and I'd expect to spend deliberate time there.
-            </p>
-          </article>
-          <article class="gap">
-            <h3>Working alongside Plus merchants directly.</h3>
-            <p>
-              I've been the primary technical contact on enterprise engagements, but the merchants I've worked with weren't on Shopify Plus. The communication patterns translate. The product context doesn't, yet.
-            </p>
-          </article>
+        <div class="section-heading reveal">
+          <p class="eyebrow">Selected evidence</p>
+          <h2 class="section-title" id="evidence-title">Relevant examples I would expand on in conversation.</h2>
         </div>
 
-        <div class="ramp reveal">
-          <article class="ramp-card">
-            <span class="ramp-card__label">Days 1 – 30</span>
-            <h3>Charge the trust battery from zero.</h3>
-            <p>
-              Read the codebases I'm assigned to. Sit on at least two active engagements as a quiet observer. Ship one small, well-scoped PR every week — not for visibility, for calibration. By day thirty, I want a senior on the team to feel comfortable handing me a bug that touches real merchant code.
-            </p>
+        <div class="evidence-grid">
+          <article class="evidence-card reveal">
+            <span>TCS</span>
+            <h3>Enterprise commerce platforms</h3>
+            <dl>
+              <dt>Context</dt>
+              <dd>Large B2B commerce programs with enterprise stakeholders.</dd>
+              <dt>Action</dt>
+              <dd>Led backend implementation, integrations, code reviews, and production support.</dd>
+              <dt>Impact</dt>
+              <dd>Delivered commerce systems where reliability, release discipline, and client communication mattered.</dd>
+              <dt>Shopify connection</dt>
+              <dd>Merchant systems, custom integrations, backend services, and technical ownership.</dd>
+            </dl>
           </article>
-          <article class="ramp-card">
-            <span class="ramp-card__label">Days 31 – 60</span>
-            <h3>Take a defined slice end-to-end.</h3>
-            <p>
-              Pick up a scoped piece of an active integration — ideally one that has a clear merchant outcome and a manageable surface area. Discovery through implementation, with a senior reviewer in the loop. The goal is one shipped artifact I can point to in a 1:1 and say "this is the level I'm operating at."
-            </p>
+
+          <article class="evidence-card reveal">
+            <span>Flosonics Medical</span>
+            <h3>AI and backend data services</h3>
+            <dl>
+              <dt>Context</dt>
+              <dd>Internal business teams needed faster access to operational and commercial insights.</dd>
+              <dt>Action</dt>
+              <dd>Built PostgreSQL data services, AI assistants, repeatable transformations, and validation checks.</dd>
+              <dt>Impact</dt>
+              <dd>Reduced manual reporting overhead and improved repeatability of business workflows.</dd>
+              <dt>Shopify connection</dt>
+              <dd>AI assisted delivery, data flow reliability, production debugging, and stakeholder translation.</dd>
+            </dl>
           </article>
-          <article class="ramp-card">
-            <span class="ramp-card__label">Days 61 – 90</span>
-            <h3>Own a merchant-facing workstream.</h3>
-            <p>
-              By day ninety, the goal is to be the engineer a Delivery Manager can hand work to and trust it lands — including the awkward calls. Not the most senior person on the team. Just useful, predictable, and visibly improving.
-            </p>
+
+          <article class="evidence-card reveal">
+            <span>LoopX and Minax</span>
+            <h3>Ambiguous client delivery</h3>
+            <dl>
+              <dt>Context</dt>
+              <dd>Field stakeholders needed practical tools in complex operating environments.</dd>
+              <dt>Action</dt>
+              <dd>Converted unclear needs into workflows, prototypes, UAT cycles, documentation, and handoff.</dd>
+              <dt>Impact</dt>
+              <dd>Delivered tools that reduced manual friction and helped users work more effectively.</dd>
+              <dt>Shopify connection</dt>
+              <dd>Consultative engineering, merchant empathy, and practical implementation under ambiguity.</dd>
+            </dl>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============== 07 CLOSING ============== -->
-    <section class="section" id="close" aria-labelledby="close-title">
-      <div class="container close-grid">
-        <div class="reveal">
-          <span class="sec-num">§ 07</span>
-          <h2 id="close-title">A short closing.</h2>
-          <p class="prose-tight">
-            I've watched Shopify from the outside for a long time. Two things stand out, both of which I read about long before I applied.
+    <section class="section closing-section" id="contact" aria-labelledby="contact-title">
+      <div class="container narrow">
+        <div class="closing-card reveal">
+          <p class="eyebrow">Closing note</p>
+          <h2 class="section-title" id="contact-title">Why Shopify, why now.</h2>
+          <p>
+            Shopify feels like the right next environment because it values craft, speed, ownership, merchant impact, and people who keep getting better at the work itself. I am excited by the possibility of applying my experience in enterprise systems, backend delivery, integrations, data workflows, and AI assisted development to work that directly helps merchants move faster.
           </p>
-          <p class="prose-tight">
-            The first is that engineering craft, merchant outcomes, and business success are talked about in the same sentence — which is rarer than it sounds. The second is the ~Mastery framing of growth without forcing crafters onto a management track. That's the model I wish more companies used, and it's why this posting is the one I sat down to write a real follow-up for instead of just clicking apply.
+          <p>
+            What I would bring is not only a list of technologies. I would bring the habit of taking ambiguous problems seriously, communicating clearly, learning quickly, and owning the outcome after the code is shipped.
           </p>
-          <p class="prose-tight">
-            I'd be glad to keep going.
-          </p>
-        </div>
 
-        <aside class="card-contact reveal" aria-label="Contact details">
-          <p class="card-contact__label">Contact</p>
-          <h3>Mihir Trivedi</h3>
-          <p class="card-contact__meta">Senior Software Engineer · Sudbury, Ontario</p>
-
-          <ul class="card-contact__list">
-            <li>
+          <div class="contact-grid" aria-label="Contact details">
+            <div>
+              <span>Name</span>
+              <strong>Mihir Trivedi</strong>
+            </div>
+            <div>
+              <span>Role</span>
+              <strong>Senior Software Engineer</strong>
+            </div>
+            <div>
+              <span>Location</span>
+              <strong>Sudbury, Ontario, Canada</strong>
+            </div>
+            <div>
               <span>Email</span>
               <a href="mailto:mtrivedi@laurentian.ca">mtrivedi@laurentian.ca</a>
-            </li>
-            <li>
-              <span>Phone</span>
-              <a href="tel:+12493605901">+1 249&#8209;360&#8209;5901</a>
-            </li>
-            <li>
+            </div>
+            <div>
               <span>LinkedIn</span>
-              <a href="https://linkedin.com/in/mihirtrivedigm" target="_blank" rel="noopener">linkedin.com/in/mihirtrivedigm</a>
-            </li>
-            <li>
-              <span>Web</span>
+              <a href="https://www.linkedin.com/in/mihirtrivedigm" target="_blank" rel="noopener">linkedin.com/in/mihirtrivedigm</a>
+            </div>
+            <div>
+              <span>Portfolio</span>
               <a href="https://www.mihirtrivedi.tech" target="_blank" rel="noopener">mihirtrivedi.tech</a>
-            </li>
-          </ul>
-        </aside>
+            </div>
+          </div>
+
+          <p class="thank-you">
+            Thank you for reviewing this page. I would be glad to discuss any part of this in the next conversation.
+          </p>
+        </div>
       </div>
     </section>
-
   </main>
 
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <p>Prepared by Mihir Trivedi as a written follow-up after the introductory conversation with Shopify.</p>
-      <p>Not affiliated with Shopify. No confidential employer data referenced.</p>
-    </div>
-  </footer>
-
-  <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>↑</button>
+  <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">Top</button>
 
   <script src="script.js"></script>
 </body>
